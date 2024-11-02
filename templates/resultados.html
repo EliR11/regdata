@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .w3-container {
+            max-width: 800px; /* Ancho máximo para la impresión */
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Estilos para impresión */
+        @media print {
+            body {
+                margin: 0; /* Eliminar márgenes al imprimir */
+                padding: 0; /* Eliminar padding al imprimir */
+                background-color: white; /* Fondo blanco para impresión */
+            }
+            .no-print {
+                display: none; /* Ocultar elementos que no queremos imprimir */
+            }
+        }
+
+        .info-frame {
+            border: 1px solid #ccc; /* Borde del marco */
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px; /* Espacio entre marcos */
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Sombra del marco */
+        }
+
+        .info-column {
+            margin-bottom: 10px; /* Espacio entre columnas */
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-container">
+    <h1>Resultados de Búsqueda</h1>
+    
+    {% if personas %}
+        <div class="w3-row-padding w3-margin-top">
+            {% for persona in personas %}
+                <div class="w3-col s12 m4">
+                    <div class="info-frame">
+                        <div class="info-column">
+                            <strong>Nombre:</strong> {{ persona.nombre }}
+                        </div>
+                        <div class="info-column">
+                            <strong>Apellido:</strong> {{ persona.apellido }}
+                        </div>
+                        <div class="info-column">
+                            <strong>Edad:</strong> {{ persona.edad }}
+                        </div>
+                        <div class="info-column">
+                            <strong>Ciudad:</strong> {{ persona.ciudad }}
+                        </div>
+                        <div class="info-column">
+                            <strong>Cédula:</strong> {{ persona.cedula }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No se encontraron resultados para esta cédula.</p>
+    {% endif %}
+    
+    <!-- Botón para imprimir -->
+    <button onclick="window.print()" class="w3-button w3-green no-print">Imprimir Resultados</button>
+</div>
+
+</body>
+</html>

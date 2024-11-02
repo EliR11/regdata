@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Personas</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-container">
+    <h1 class="w3-center">Lista de Personas</h1>
+    <a href="{{ url_for('crear') }}" class="w3-button w3-blue w3-round">Agregar Persona</a>
+    <a href="{{ url_for('buscar') }}" class="w3-button w3-orange">Buscar por Cédula</a>
+    <br>
+    <br>
+    <table class="w3-table w3-striped w3-bordered">
+        <thead>
+            <tr class="w3-green">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+                <th>Cédula</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+            <tr>
+                <td>{{ persona.id }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.edad }}</td>
+                <td>{{ persona.ciudad }}</td>
+                <td>{{ persona.cedula }}</td>
+                <td>
+                    <a href="{{ url_for('editar', id=persona.id) }}" class="w3-button w3-blue w3-round">Editar</a>
+                    <a href="{{ url_for('eliminar', id=persona.id) }}" class="w3-button w3-red w3-round">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

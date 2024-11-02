@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Persona</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-container">
+    <h1>Editar Persona</h1>
+    <form method="POST" class="w3-container w3-card-4 w3-light-grey">
+        Nombre:<br><input type="text" name="nombre" value="{{ persona.nombre }}" required class="w3-input"><br><br>
+        Apellido:<br><input type="text" name="apellido" value="{{ persona.apellido }}" required class="w3-input"><br><br>
+        Edad:<br><input type="number" name="edad" value="{{ persona.edad }}" required class="w3-input"><br><br>
+        Ciudad:<br><input type="text" name="ciudad" value="{{ persona.ciudad }}" required class="w3-input"><br><br>
+        Cédula:<br><input type="text" name="cedula" value="{{ persona.cedula }}" required class="w3-input"><br><br>
+        <input type="submit" value="Actualizar" class="w3-button w3-blue">
+    </form>
+</div>
+</body>
+</html>
